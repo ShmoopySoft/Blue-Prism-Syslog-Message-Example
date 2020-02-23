@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
+    <bpr:name>ShmoopySoftBluePrismSyslogMessageExample</bpr:name>
+    <bpr:release-notes />
+    <bpr:created>2020-02-23 15:42:15Z</bpr:created>
+    <bpr:package-id>13</bpr:package-id>
+    <bpr:package-name>ShmoopySoft Syslog Message Example</bpr:package-name>
+    <bpr:user-created-by>admin</bpr:user-created-by>
+    <bpr:contents count="4">
+        <process id="c9a271cb-751f-4aa3-95c8-1919f31d93e5" name="Syslog Process" xmlns="http://www.blueprism.co.uk/product/process"><process name="Syslog Process" version="1.0" bpversion="6.4.2.10610" narrative="Send messages to a Syslog Server using the SyslogNet open source library for .NET. Actions are provided for Rfc 3164 and Rfc 5424 messages." byrefcollection="true"><view><camerax>-70</camerax><cameray>-36</cameray><zoom version="2">0.9375</zoom></view><preconditions /><endpoint narrative="" /><stage stageid="332d5c02-5ca2-4d22-a7d4-4ff76b952c53" name="Stage1" type="ProcessInfo"><loginhibit onsuccess="true" /><narrative></narrative><displayx>-270</displayx><displayy>-75</displayy><displaywidth>330</displaywidth><displayheight>90</displayheight><font family="Arial" size="12" style="Regular" color="000000" /></stage><stage stageid="a4c5eb58-cb36-4fff-a9ef-62ddf981bd10" name="Start" type="Start"><loginhibit onsuccess="true" /><narrative></narrative><displayx>15</displayx><displayy>-105</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><onsuccess>353b7d2e-fb64-475d-9d69-c9edd31ea8e0</onsuccess></stage><stage stageid="c7fbe9f3-2068-419d-a91e-6f0573df6d92" name="End" type="End"><loginhibit onsuccess="true" /><narrative></narrative><displayx>15</displayx><displayy>315</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /></stage><stage stageid="353b7d2e-fb64-475d-9d69-c9edd31ea8e0" name="Send Rfc 3164 Message" type="Action"><loginhibit onsuccess="true" /><narrative></narrative><displayx>15</displayx><displayy>-30</displayy><displaywidth>120</displaywidth><displayheight>60</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><inputs><input type="text" name="MessageText" narrative="The message to send to your Telegram Channel." expr="[vMessageText]" /></inputs><outputs><output type="flag" name="Success" narrative="True if the message was sent." stage="vSuccess" /><output type="text" name="Message" narrative="The message returned by the Code Stage." stage="vMessage" /></outputs><onsuccess>38667c9d-f842-4e2c-b467-4a676d6f67a7</onsuccess><resource object="Syslog" action="Send Rfc 3164 Message" /></stage><stage stageid="7f02e720-db7c-4347-b97a-c584cd0f63e0" name="Protected (Private) Data Items" type="Block"><loginhibit onsuccess="true" /><narrative></narrative><displayx>-435</displayx><displayy>0</displayy><displaywidth>330</displaywidth><displayheight>180</displayheight><font family="Arial" size="12" style="Regular" color="99CCFF" /></stage><stage stageid="d570ac3a-315c-4cc3-b383-d6ae186e8fa6" name="vMessageText" type="Data"><loginhibit onsuccess="true" /><narrative>The message you want to send (URL-encoded).</narrative><displayx>-270</displayx><displayy>150</displayy><displaywidth>300</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue xml:space="preserve">This message was sent from Blue Prism :-)</initialvalue><private /><alwaysinit /></stage><stage stageid="38667c9d-f842-4e2c-b467-4a676d6f67a7" name="Message Sent?" type="Decision"><loginhibit onsuccess="true" /><narrative></narrative><displayx>15</displayx><displayy>60</displayy><displaywidth>90</displaywidth><displayheight>60</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><decision expression="[vSuccess]" /><ontrue>61201fa6-3563-45c1-b20c-864f8fc75197</ontrue><onfalse>ae66989a-6862-46ad-8c61-26de19006112</onfalse></stage><stage stageid="ae66989a-6862-46ad-8c61-26de19006112" name="Send Rfc 3164 Message Exception" type="Exception"><loginhibit onsuccess="true" /><narrative></narrative><displayx>135</displayx><displayy>60</displayy><displaywidth>90</displaywidth><displayheight>60</displayheight><font family="Arial" size="12" style="Bold" color="FF0000" /><exception type="System Exception" detail="[vMessage]" /></stage><stage stageid="22ed1fa3-14f0-4384-b960-80cc338b2d0f" name="Note1" type="Note"><loginhibit onsuccess="true" /><narrative>[vMessageText] is the message you want to send
+[vProcId] is the PROC-ID to tag the Rfc5424 Syslog message with
+[vMsgId] is the MSG-ID to tag the Rfc5424 Syslog message with
+[colStructuredDataElements] is a Collection of data elements to include in the Rfc5424 message.</narrative><displayx>-90</displayx><displayy>-195</displayy><displaywidth>720</displaywidth><displayheight>90</displayheight><font family="Arial" size="15" style="Regular" color="0000FF" /></stage><stage stageid="5d919077-67c0-43a8-942e-fad292756163" name="Action Return Values" type="Block"><loginhibit onsuccess="true" /><narrative></narrative><displayx>-435</displayx><displayy>210</displayy><displaywidth>330</displaywidth><displayheight>75</displayheight><font family="Arial" size="12" style="Regular" color="339966" /></stage><stage stageid="7688d5dd-2ba8-4c49-9580-b332213f1484" name="vSuccess" type="Data"><loginhibit onsuccess="true" /><narrative>True if sending the message was successful.</narrative><displayx>-195</displayx><displayy>255</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>flag</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="5933fed9-9042-4a5c-83f4-46f1b02fc39e" name="vMessage" type="Data"><loginhibit onsuccess="true" /><narrative>The message returned by the Syslog action.</narrative><displayx>-345</displayx><displayy>255</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="61201fa6-3563-45c1-b20c-864f8fc75197" name="Send Rfc 5424 Message" type="Action"><loginhibit onsuccess="true" /><narrative></narrative><displayx>15</displayx><displayy>150</displayy><displaywidth>120</displaywidth><displayheight>60</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><inputs><input type="text" name="MessageText" narrative="The message to send to your Telegram Channel." expr="[vMessageText]" /><input type="collection" name="StructuredDataElements" narrative="A Collection of StructuredDataElements to send with the message." expr="[colStructuredDataElements]" /><input type="text" name="ProcId" narrative="The PROCID to tag the message with." expr="[vProcId]" /><input type="text" name="MsgId" narrative="A MSGID to tag the message with." expr="[vMsgId]" /></inputs><outputs><output type="flag" name="Success" narrative="True if the message was sent." stage="vSuccess" /><output type="text" name="Message" narrative="The message returned by the Code Stage." stage="vMessage" /></outputs><onsuccess>c9a4f581-c3a7-48da-a11b-0d41be12881d</onsuccess><resource object="Syslog" action="Send Rfc 5424 Message" /></stage><stage stageid="a0c56a11-4da9-4dd6-ac4b-d5d8633b6b20" name="colStructuredDataElements" type="Collection"><loginhibit onsuccess="true" /><narrative></narrative><displayx>-195</displayx><displayy>75</displayy><displaywidth>150</displaywidth><displayheight>90</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>collection</datatype><private /><alwaysinit /><collectioninfo><field name="SD-ID" type="text" description="SD-IDs are case-sensitive and uniquely identify the type and purpose of the SD-ELEMENT.  The same SD-ID MUST NOT exist more than once in a message." /><field name="PARAM-NAME" type="text" description="Each SD-PARAM consists of a name, referred to as PARAM-NAME." /><field name="PARAM-VALUE" type="text" description="Each SD-PARAM consists of a value, referred to as PARAM-VALUE." /></collectioninfo><initialvalue><row><field name="SD-ID" type="text" value="myexampleSDID@23456" /><field name="PARAM-NAME" type="text" value="myeventApplication" /><field name="PARAM-VALUE" type="text" value="My Application Name" /></row><row><field name="SD-ID" type="text" value="myexampleSDID@12345" /><field name="PARAM-NAME" type="text" value="myeventId" /><field name="PARAM-VALUE" type="text" value="12345" /></row></initialvalue></stage><stage stageid="8d43b09b-107f-4c25-af16-7c0bfdddfe87" name="vProcId" type="Data"><loginhibit onsuccess="true" /><narrative>The PROCID to tag the message with.</narrative><displayx>-345</displayx><displayy>45</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue xml:space="preserve">MyProcId</initialvalue><private /><alwaysinit /></stage><stage stageid="0fc1eddf-2d38-4e37-912c-f2ae1ce52a8a" name="vMsgId" type="Data"><loginhibit onsuccess="true" /><narrative>The MSGID to tag the message with.</narrative><displayx>-345</displayx><displayy>90</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue xml:space="preserve">My MsgId</initialvalue><private /><alwaysinit /></stage><stage stageid="c9a4f581-c3a7-48da-a11b-0d41be12881d" name="Message Sent?" type="Decision"><loginhibit onsuccess="true" /><narrative></narrative><displayx>15</displayx><displayy>240</displayy><displaywidth>90</displaywidth><displayheight>60</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><decision expression="[vSuccess]" /><ontrue>c7fbe9f3-2068-419d-a91e-6f0573df6d92</ontrue><onfalse>108ce16b-691c-48ff-ae3a-d76036c6272e</onfalse></stage><stage stageid="108ce16b-691c-48ff-ae3a-d76036c6272e" name="Send Rfc 5424 Message Exception" type="Exception"><loginhibit onsuccess="true" /><narrative></narrative><displayx>135</displayx><displayy>240</displayy><displaywidth>90</displaywidth><displayheight>60</displayheight><font family="Arial" size="12" style="Bold" color="FF0000" /><exception type="System Exception" detail="[vMessage]" /></stage><stage stageid="e4999847-4d1c-48c6-88e7-b2991b56a3ef" name="Note1" type="Note"><loginhibit onsuccess="true" /><narrative>ShmoopySoft Blue Prism Syslog Message Example</narrative><displayx>-90</displayx><displayy>-270</displayy><displaywidth>720</displaywidth><displayheight>30</displayheight><font family="Arial" size="20" style="Bold" color="000000" /></stage></process></process>
+        <object id="5d7da5eb-9340-4ad2-a5d2-a3cce82c1b01" name="Syslog" xmlns="http://www.blueprism.co.uk/product/process"><process name="Syslog" version="1.0" bpversion="6.4.2.10610" narrative="A business object that sends messages to a Syslog Server using the SyslogNet open source library for .NET. Actions are provided for Rfc 3164 and Rfc 5424 messages.&#xD;&#xA;&#xD;&#xA;This object is set to run in BACKGROUND MODE." byrefcollection="true" type="object" runmode="Background"><appdef><element name="Application Root"><id>025c2ae5-b0ad-47cc-aa51-8d7ea5271e23</id><type>Application</type><basetype>Application</basetype><datatype>unknown</datatype><diagnose>False</diagnose></element></appdef><view><camerax>-167</camerax><cameray>0</cameray><zoom version="2">0.9375</zoom></view><preconditions><condition narrative="The SyslogNet client library for .NET must be installed in: C:\Program Files\Blue Prism Limited\Blue Prism Automate\SyslogNet.Client.dll" /></preconditions><endpoint narrative="" /><subsheet subsheetid="8797c783-037c-42d6-98e0-d59588cabea2" type="CleanUp" published="True"><name>Clean Up</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">0.9375</zoom></view></subsheet><subsheet subsheetid="47811b18-cdcd-43d9-8116-6a31718c5cef" type="Normal" published="True"><name>Send Rfc 3164 Message</name><view><camerax>-112</camerax><cameray>63</cameray><zoom version="2">0.9375</zoom></view></subsheet><subsheet subsheetid="d72752dc-4fc7-4d6c-bcc8-7ba4660593cf" type="Normal" published="True"><name>Send Rfc 5424 Message</name><view><camerax>0</camerax><cameray>99</cameray><zoom version="2">0.9375</zoom></view></subsheet><stage stageid="846b76e7-6a50-4c08-ae19-9a3fd448cbcb" name="Start" type="Start"><loginhibit /><narrative></narrative><displayx>-45</displayx><displayy>-135</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><onsuccess>6ab39db2-39de-4403-ae87-874bf18b534a</onsuccess></stage><stage stageid="6ab39db2-39de-4403-ae87-874bf18b534a" name="End" type="End"><loginhibit /><narrative></narrative><displayx>-45</displayx><displayy>60</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /></stage><stage stageid="60d4682a-d415-499c-9374-81e3b1acff8c" name="Stage1" type="ProcessInfo"><loginhibit /><narrative></narrative><displayx>-285</displayx><displayy>-105</displayy><displaywidth>330</displaywidth><displayheight>90</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><references><reference>System.dll</reference><reference>System.Data.dll</reference><reference>C:\Program Files\Blue Prism Limited\Blue Prism Automate\SyslogNet.Client.dll</reference><reference>System.Xml.dll</reference></references><imports><import>System</import><import>System.Data</import><import>SyslogNet.Client</import><import>SyslogNet.Client.Serialization</import><import>SyslogNet.Client.Transport</import><import>System.Collections.Generic</import><import>System.Xml</import></imports><language>csharp</language><globalcode><![CDATA[]]></globalcode><code><![CDATA[/*
+MIT License
+
+Copyright (c) 2020 ShmoopySoft (Pty) Ltd
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
+and associated documentation files (the "Software"), to deal in the Software without restriction, 
+including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial 
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/]]></code></stage><stage stageid="571deb75-87db-4178-ac04-82ce3151b120" name="Clean Up" type="SubSheetInfo"><subsheetid>8797c783-037c-42d6-98e0-d59588cabea2</subsheetid><loginhibit /><narrative></narrative><displayx>-135</displayx><displayy>-75</displayy><displaywidth>150</displaywidth><displayheight>90</displayheight><font family="Arial" size="12" style="Regular" color="000000" /></stage><stage stageid="417f4922-ce9b-4a6f-95e6-ed72414b6112" name="Start" type="Start"><subsheetid>8797c783-037c-42d6-98e0-d59588cabea2</subsheetid><loginhibit /><narrative></narrative><displayx>15</displayx><displayy>-105</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><onsuccess>db2f0b21-89eb-4036-ad9f-f1e94e804fde</onsuccess></stage><stage stageid="db2f0b21-89eb-4036-ad9f-f1e94e804fde" name="End" type="End"><subsheetid>8797c783-037c-42d6-98e0-d59588cabea2</subsheetid><loginhibit /><narrative></narrative><displayx>15</displayx><displayy>90</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /></stage><stage stageid="0abad6b1-9df5-48e4-a0fe-2dbdfa864160" name="Send Rfc 3164 Message" type="SubSheetInfo"><subsheetid>47811b18-cdcd-43d9-8116-6a31718c5cef</subsheetid><loginhibit /><narrative>Send an RFC 3164 Syslog Message. See: https://tools.ietf.org/html/rfc3164
+
+In RFC 3164, the message component (known as MSG) was specified as having these fields: TAG, which should be the name of the program or process that generated the message, and CONTENT, which contains the details of the message.
+
+The content field should be encoded in a UTF-8 character set and octet values in the traditional ASCII control character range should be avoided.</narrative><displayx>-255</displayx><displayy>-75</displayy><displaywidth>330</displaywidth><displayheight>90</displayheight><font family="Arial" size="12" style="Regular" color="000000" /></stage><stage stageid="306638d7-5d69-4e26-aac8-bc3aa9198ebc" name="Send Rfc 5424 Message" type="SubSheetInfo"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative>Send an RFC 5424 Syslog Message. See: https://tools.ietf.org/html/rfc5424
+
+In RFC 3164, the message component (known as MSG) was specified as having these fields: TAG, which should be the name of the program or process that generated the message, and CONTENT, which contains the details of the message.
+
+Described in RFC 5424,[9] "MSG is what was called CONTENT in RFC 3164. The TAG is now part of the header, but not as a single field. The TAG has been split into APP-NAME, PROCID, and MSGID.
+ 
+This does not totally resemble the usage of TAG, but provides the same functionality for most of the cases." Popular syslog tools such as Rsyslog conform to this new standard.
+
+The content field should be encoded in a UTF-8 character set and octet values in the traditional ASCII control character range should be avoided.</narrative><displayx>-255</displayx><displayy>-75</displayy><displaywidth>330</displaywidth><displayheight>90</displayheight><font family="Arial" size="12" style="Regular" color="000000" /></stage><stage stageid="5439769a-51f3-4ca7-af3f-15ce715f8b45" name="Send Rfc 3164 Message" type="Code"><subsheetid>47811b18-cdcd-43d9-8116-6a31718c5cef</subsheetid><loginhibit /><narrative></narrative><displayx>15</displayx><displayy>-30</displayy><displaywidth>120</displaywidth><displayheight>60</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><inputs><input type="text" name="SyslogServer" expr="[gvSyslogServer]" /><input type="text" name="SyslogPort" expr="[gvSyslogPort]" /><input type="text" name="AppName" expr="[gvAppName]" /><input type="text" name="MessageText" expr="[inMessageText]" /></inputs><outputs><output type="flag" name="Success" stage="outSuccess" /><output type="text" name="Message" stage="outMessage" /></outputs><onsuccess>b4929eff-1732-4228-9a52-0fc873adbf16</onsuccess><code><![CDATA[/*
+MIT License
+
+Copyright (c) 2020 ShmoopySoft (Pty) Ltd
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
+and associated documentation files (the "Software"), to deal in the Software without restriction, 
+including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial 
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+Success = false;
+Message = "";
+
+try
+{
+	// Create a new SyslogUdpSender with the SyslogServer and SyslogPort provided.
+	// The using block ensures the SyslogUdpSender is automatically closed.
+	using (SyslogUdpSender syslogSender = new SyslogUdpSender(SyslogServer, Convert.ToInt32(SyslogPort)))
+	{
+		/////////////////////////////////////////////
+		// Send an RFC 3164 Syslog Message. See:
+		// https://tools.ietf.org/html/rfc3164
+		/////////////////////////////////////////////
+		// In RFC 3164, the message component (known as MSG) was specified as having these fields: TAG, 
+		// which should be the name of the program or process that generated the message, and CONTENT which 
+		// contains the details of the message.
+		// The content field should be encoded in a UTF-8 character set and octet values in the traditional 
+		// ASCII control character range should be avoided.
+		/////////////////////////////////////////////
+
+		// Create a new Syslog message (RFC3164).
+		var rfc3164SyslogMessage = new SyslogMessage(DateTimeOffset.Now,                    // TIMESTAMP
+													 Facility.UserLevelMessages,            // FACILITY
+													 Severity.Informational,                // SEVERITY
+													 Environment.MachineName,               // HOSTNAME
+													 AppName,                               // APP-NAME
+													 MessageText);                          // MSG
+
+		// Create a new Syslog RFC3164 serializer.
+		var rfc3164SyslogSerializer = new SyslogRfc3164MessageSerializer();
+
+		// Send the Syslog message, using the serializer created.
+		syslogSender.Send(rfc3164SyslogMessage, rfc3164SyslogSerializer);
+
+		// Display a confirmation.
+		Message = "RFC3164 message was successfully sent to Syslog Server :-)";
+		
+		// Return Success.
+		Success = true;
+	}
+}
+catch (Exception ex)
+{
+	Message = ex.ToString();
+}
+]]></code></stage><stage stageid="b4929eff-1732-4228-9a52-0fc873adbf16" name="End" type="End"><subsheetid>47811b18-cdcd-43d9-8116-6a31718c5cef</subsheetid><loginhibit /><narrative></narrative><displayx>15</displayx><displayy>45</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><outputs><output type="flag" name="Success" narrative="True if the message was sent." stage="outSuccess" /><output type="text" name="Message" narrative="The message returned by the Code Stage." stage="outMessage" /></outputs></stage><stage stageid="6e14a484-8520-4ebe-ade6-9b74693f8c75" name="outSuccess" type="Data"><subsheetid>47811b18-cdcd-43d9-8116-6a31718c5cef</subsheetid><loginhibit /><narrative>True if sending the message was successful.</narrative><displayx>-180</displayx><displayy>150</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>flag</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="81a27312-08ca-4df5-9f24-fae24bc17db1" name="outMessage" type="Data"><subsheetid>47811b18-cdcd-43d9-8116-6a31718c5cef</subsheetid><loginhibit /><narrative>The message returned by the Code Stage.</narrative><displayx>-330</displayx><displayy>150</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="e86f200b-c623-42bd-9d24-fbe37a38cbb0" name="Output Data Items" type="Block"><subsheetid>47811b18-cdcd-43d9-8116-6a31718c5cef</subsheetid><loginhibit /><narrative></narrative><displayx>-420</displayx><displayy>105</displayy><displaywidth>330</displaywidth><displayheight>75</displayheight><font family="Arial" size="12" style="Regular" color="339966" /></stage><stage stageid="0b02c99d-01d6-4eb6-8152-bea3623f7018" name="Start" type="Start"><subsheetid>47811b18-cdcd-43d9-8116-6a31718c5cef</subsheetid><loginhibit /><preconditions><condition narrative="The SyslogNet client library for .NET must be installed in: C:\Program Files\Blue Prism Limited\Blue Prism Automate\SyslogNet.Client.dll" /></preconditions><narrative></narrative><displayx>15</displayx><displayy>-105</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><inputs><input type="text" name="MessageText" narrative="The message to send to your Telegram Channel." stage="inMessageText" /></inputs><onsuccess>5439769a-51f3-4ca7-af3f-15ce715f8b45</onsuccess></stage><stage stageid="9cc86dec-13e0-4546-add2-97e61e4ea448" name="inMessageText" type="Data"><subsheetid>47811b18-cdcd-43d9-8116-6a31718c5cef</subsheetid><loginhibit /><narrative>The message to send.</narrative><displayx>-255</displayx><displayy>45</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue xml:space="preserve">This is a test.</initialvalue><private /><alwaysinit /></stage><stage stageid="df442217-f083-49d5-97f9-d47c074722e1" name="Input Data Items" type="Block"><subsheetid>47811b18-cdcd-43d9-8116-6a31718c5cef</subsheetid><loginhibit /><narrative></narrative><displayx>-420</displayx><displayy>0</displayy><displaywidth>330</displaywidth><displayheight>75</displayheight><font family="Arial" size="12" style="Regular" color="99CCFF" /></stage><stage stageid="84522ff2-d2a4-44d7-b403-e69b06c6882e" name="gvSyslogServer" type="Data"><loginhibit /><narrative></narrative><displayx>-285</displayx><displayy>15</displayy><displaywidth>300</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue xml:space="preserve">127.0.0.1</initialvalue><alwaysinit /></stage><stage stageid="1faa8bf8-48c5-4a61-89d6-f328a9524cc1" name="Public (Global) Data Items" type="Block"><loginhibit /><narrative></narrative><displayx>-450</displayx><displayy>-30</displayy><displaywidth>330</displaywidth><displayheight>165</displayheight><font family="Arial" size="12" style="Regular" color="99CCFF" /></stage><stage stageid="b52641d2-52c5-4711-a3bc-c7b8adc02898" name="gvSyslogPort" type="Data"><loginhibit /><narrative></narrative><displayx>-285</displayx><displayy>60</displayy><displaywidth>300</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>number</datatype><initialvalue>514</initialvalue><alwaysinit /></stage><stage stageid="c2706dcf-6e77-4e3c-aaee-d3bc9211b953" name="gvAppName" type="Data"><loginhibit /><narrative></narrative><displayx>-285</displayx><displayy>105</displayy><displaywidth>300</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue xml:space="preserve">Blue Prism Event Log</initialvalue><alwaysinit /></stage><stage stageid="981820b6-e5fe-45c5-af91-59830d2fea9a" name="Send Rfc 5424 Message" type="Code"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative></narrative><displayx>15</displayx><displayy>-30</displayy><displaywidth>120</displaywidth><displayheight>60</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><inputs><input type="text" name="SyslogServer" expr="[gvSyslogServer]" /><input type="text" name="SyslogPort" expr="[gvSyslogPort]" /><input type="text" name="AppName" expr="[gvAppName]" /><input type="text" name="MessageText" expr="[inMessageText]" /><input type="collection" name="StructuredDataElements" expr="[inStructuredDataElements]" /><input type="text" name="ProcId" expr="[inProcId]" /><input type="text" name="MsgId" expr="[inMsgId]" /></inputs><outputs><output type="flag" name="Success" stage="outSuccess" /><output type="text" name="Message" stage="outMessage" /></outputs><onsuccess>fecb8e00-0063-4cbe-b792-107dcf55d953</onsuccess><code><![CDATA[/*
+MIT License
+
+Copyright (c) 2020 ShmoopySoft (Pty) Ltd
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
+and associated documentation files (the "Software"), to deal in the Software without restriction, 
+including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial 
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+Success = false;
+Message = "";
+
+try
+{
+	// Create a new SyslogUdpSender with the SyslogServer and SyslogPort provided.
+	// The using block ensures the SyslogUdpSender is automatically closed.
+	using (SyslogUdpSender syslogSender = new SyslogUdpSender(SyslogServer, Convert.ToInt32(SyslogPort)))
+	{
+		/////////////////////////////////////////////
+		// Send an RFC 5424 Syslog Message. See:
+		// https://tools.ietf.org/html/rfc5424
+		/////////////////////////////////////////////
+		// In RFC 3164, the message component (known as MSG) was specified as having these fields: TAG, 
+		// which should be the name of the program or process that generated the message, and CONTENT which 
+		// contains the details of the message.
+		// Described in RFC 5424,[9] "MSG is what was called CONTENT in RFC 3164. The TAG is now part of the 
+		// header, but not as a single field. The TAG has been split into APP-NAME, PROCID, and MSGID. 
+		// This does not totally resemble the usage of TAG, but provides the same functionality for most of 
+		// the cases." Popular syslog tools such as Rsyslog conform to this new standard.
+		// The content field should be encoded in a UTF-8 character set and octet values in the traditional 
+		// ASCII control character range should be avoided.
+		/////////////////////////////////////////////
+
+		// Create structured data items for RFC5424 compliance.
+		var structuredDataElements = new List<StructuredDataElement>(); 
+
+		// For each row, create a structured data element.
+		foreach(DataRow row in StructuredDataElements.Rows)
+		{
+			var element = new StructuredDataElement(row["SD-ID"].ToString(), new Dictionary<string, string> {{row["PARAM-NAME"].ToString(), row["PARAM-VALUE"].ToString()}});
+			structuredDataElements.Add(element);
+		}
+
+		// Create a new Syslog message (RFC5424).
+		SyslogMessage rfc5424SyslogMessage = new SyslogMessage(DateTimeOffset.Now,      			   // TIMESTAMP
+																Facility.UserLevelMessages,            // FACILITY
+																Severity.Informational,                // SEVERITY
+																Environment.MachineName,               // HOSTNAME
+																AppName,                               // APP-NAME
+																ProcId,                                // PROCID
+																MsgId,                                 // MSGID
+																MessageText,  		                   // MSG
+																structuredDataElements.ToArray());     // STRUCTURED-DATA
+
+		// Create a new Syslog RFC5424 serializer.
+		var rfc5424SyslogSerializer = new SyslogRfc5424MessageSerializer();
+
+		// Send the Syslog message, using the serializer created.
+		syslogSender.Send(rfc5424SyslogMessage, rfc5424SyslogSerializer);
+
+		// Display a confirmation.
+		Message = "RFC5424 message was successfully sent to Syslog Server :-)";
+		
+		// Return Success.
+		Success = true;
+	}
+}
+catch (Exception ex)
+{
+	Message = ex.ToString();
+}
+]]></code></stage><stage stageid="fecb8e00-0063-4cbe-b792-107dcf55d953" name="End" type="End"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative></narrative><displayx>15</displayx><displayy>45</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><outputs><output type="flag" name="Success" narrative="True if the message was sent." stage="outSuccess" /><output type="text" name="Message" narrative="The message returned by the Code Stage." stage="outMessage" /></outputs></stage><stage stageid="59e02b3b-fba0-4732-8157-a0c1e6451cda" name="outSuccess" type="Data"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative>True if sending the message was successful.</narrative><displayx>-180</displayx><displayy>240</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>flag</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="ecd742ad-f149-498f-9b8f-5eafb458af3d" name="outMessage" type="Data"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative>The message returned by the Code Stage.</narrative><displayx>-330</displayx><displayy>240</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="6436aa88-efe8-4220-a5eb-3a54c49e8c56" name="Output Data Items" type="Block"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative></narrative><displayx>-420</displayx><displayy>195</displayy><displaywidth>330</displaywidth><displayheight>75</displayheight><font family="Arial" size="12" style="Regular" color="339966" /></stage><stage stageid="2f265a3a-20bf-4ec3-ba38-6cafb33ba511" name="Start" type="Start"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><preconditions><condition narrative="The SyslogNet client library for .NET must be installed in: C:\Program Files\Blue Prism Limited\Blue Prism Automate\SyslogNet.Client.dll" /></preconditions><narrative></narrative><displayx>15</displayx><displayy>-105</displayy><displaywidth>60</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><inputs><input type="text" name="MessageText" narrative="The message to send to your Telegram Channel." stage="inMessageText" /><input type="collection" name="StructuredDataElements" narrative="A Collection of StructuredDataElements to send with the message." stage="inStructuredDataElements" /><input type="text" name="ProcId" narrative="The PROCID to tag the message with." stage="inProcId" /><input type="text" name="MsgId" narrative="A MSGID to tag the message with." stage="inMsgId" /></inputs><onsuccess>981820b6-e5fe-45c5-af91-59830d2fea9a</onsuccess></stage><stage stageid="204a0a4f-da37-4d89-b87b-b81af1d873ea" name="inMessageText" type="Data"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative>The message to send.</narrative><displayx>-330</displayx><displayy>45</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="11baef65-ef95-4536-b22f-44edefcf0a72" name="Input Data Items" type="Block"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative></narrative><displayx>-420</displayx><displayy>0</displayy><displaywidth>330</displaywidth><displayheight>165</displayheight><font family="Arial" size="12" style="Regular" color="99CCFF" /></stage><stage stageid="67cf0e02-2008-4a24-8372-2159f32311a7" name="inStructuredDataElements" type="Collection"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative></narrative><displayx>-180</displayx><displayy>75</displayy><displaywidth>150</displaywidth><displayheight>90</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>collection</datatype><private /><alwaysinit /><collectioninfo><field name="SD-ID" type="text" description="SD-IDs are case-sensitive and uniquely identify the type and purpose of the SD-ELEMENT.  The same SD-ID MUST NOT exist more than once in a message." /><field name="PARAM-NAME" type="text" description="Each SD-PARAM consists of a name, referred to as PARAM-NAME." /><field name="PARAM-VALUE" type="text" description="Each SD-PARAM consists of a value, referred to as PARAM-VALUE." /></collectioninfo></stage><stage stageid="2f13f135-5b99-4cac-bad8-2d682231c2ce" name="inProcId" type="Data"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative>The PROCID to tag the message with.</narrative><displayx>-330</displayx><displayy>90</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="bbf7a857-072d-4e7e-9d54-fcc037c0f4e3" name="inMsgId" type="Data"><subsheetid>d72752dc-4fc7-4d6c-bcc8-7ba4660593cf</subsheetid><loginhibit /><narrative>The MSGID to tag the message with.</narrative><displayx>-330</displayx><displayy>135</displayy><displaywidth>150</displaywidth><displayheight>30</displayheight><font family="Arial" size="12" style="Regular" color="000000" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage></process></object>
+        <process-group id="c5dc8723-57b5-4229-96c3-ed72bd5bb8ce" name="Default" isDefaultGroup="True" xmlns="http://www.blueprism.co.uk/product/process-group">
+            <members>
+                <process id="c9a271cb-751f-4aa3-95c8-1919f31d93e5" />
+            </members>
+        </process-group>
+        <object-group id="5db24851-50a8-41e5-af84-aee00a3a8c08" name="Default" isDefaultGroup="True" xmlns="http://www.blueprism.co.uk/product/object-group">
+            <members>
+                <object id="5d7da5eb-9340-4ad2-a5d2-a3cce82c1b01" />
+            </members>
+        </object-group>
+    </bpr:contents>
+</bpr:release>
