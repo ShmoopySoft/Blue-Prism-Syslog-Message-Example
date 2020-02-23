@@ -1,6 +1,6 @@
 # Blue Prism Syslog Message Example
 
-A Blue Prism Release Package containing an example Visual Business Object (VBO) and Process to demonstrate sending messages to a Syslog Server using the open source SyslogNet client library for .NET.
+A Blue Prism Release Package containing an example Visual Business Object (VBO) and Process to demonstrate sending messages to a Syslog Server using the open source SyslogNet client library for .NET. Supports both RFC 3164 and RFC 5424 Syslog standards.
 
 The Release Package was created with Blue Prism 6.4.
 
@@ -20,9 +20,9 @@ Download the [Example Blue Prism Package](ShmoopySoftBluePrismSyslogMessageExamp
 ### Running
 
 1. In Process Studio, open the process named 'Syslog Process'
-2. Edit the 'vProcId' and 'vMsgId' data items if sending an Rfc 5424 message
-3. Edit the 'colStructuredDataElements' collection is sending an Rfc 5424 message
-3. Edit the 'vMessageText' data item to set the message text you want to send (both Rfc 3164 and Rfc 5424)
+2. Edit the 'vProcId' and 'vMsgId' data items if sending an RFC 5424 message
+3. Edit the 'colStructuredDataElements' collection is sending an RFC 5424 message
+3. Edit the 'vMessageText' data item to set the message text you want to send (RFC 3164 and RFC 5424)
 4. Click the Run button, or press F5
 
 ## License
