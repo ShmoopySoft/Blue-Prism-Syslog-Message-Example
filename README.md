@@ -17,6 +17,8 @@ Download the [Example Blue Prism Package](ShmoopySoftBluePrismSyslogMessageExamp
 3. Select the 'ShmoopySoftBluePrismSyslogMessageExample.bprelease' Release Package
 4. Follow the Blue Prism import wizard to install the package
 
+Make sure that both the Confluent.Kafka library and required dependencies are installed in the default Blue Prism installation folder, usually: C:\Program Files\Blue Prism Limited\Blue Prism Automate
+
 ### Running
 
 1. In Process Studio, open the process named 'Syslog Process'
