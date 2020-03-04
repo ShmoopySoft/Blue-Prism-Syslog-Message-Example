@@ -19,19 +19,24 @@ Download the [Example Blue Prism Package](ShmoopySoftBluePrismSyslogMessageExamp
 
 Make sure that the SyslogNet.Client.dll library is installed in the default Blue Prism installation folder, usually: C:\Program Files\Blue Prism Limited\Blue Prism Automate
 
+### Configuration
+
+1. In Object Studio, open the object named 'Syslog'
+2. Make sure the 'Initialise' page is displayed
+3. Edit the 'gvSyslogServer' data item with the IP address of your Syslog server
+4. Edit the 'gvSyslogPort' data item with the Syslog server port number (usually 514 for UDP)
+5. Edit the 'gvAppName' data item with the name of the Syslog AppName to send the message to
+6. Save the object.
+
 ### Running
 
 1. In Process Studio, open the process named 'Syslog Process'
-2. Edit the 'vProcId' and 'vMsgId' data items if sending an RFC 5424 message
-3. Edit the 'colStructuredDataElements' collection is sending an RFC 5424 message
-4. Edit the 'vMessageText' data item to set the message text you want to send (RFC 3164 and RFC 5424)
-5. Save the process.
-6. In Object Studio, open the object named 'Confluent Kafka'
-7. Edit the 'gvSyslogServer' data item with the IP address of your Syslog server
-8. Edit the 'gvSyslogPort' data item with the Syslog server port number (usually 514 for UDP)
-9. Edit the 'gvAppName' data item with the name of the Syslog AppName to send the message to
-10. Save the object.
-11. Click the Run button, or press F5
+2. Make sure the 'Main' page is displayed
+3. Edit the 'vProcId' and 'vMsgId' data items if sending an RFC 5424 message
+4. Edit the 'colStructuredDataElements' collection is sending an RFC 5424 message
+5. Edit the 'vMessageText' data item to set the message text you want to send (RFC 3164 and RFC 5424)
+6. Save the process.
+7. Click the Run button, or press F5
 
 ## License
 
