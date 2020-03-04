@@ -29,7 +29,7 @@ Make sure that the SyslogNet.Client.dll library is installed in the default Blue
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
